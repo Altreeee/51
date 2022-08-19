@@ -1,4 +1,4 @@
-# first-repository
-just a try
+# 学习51单片机
 
-github is so complex
+
+
