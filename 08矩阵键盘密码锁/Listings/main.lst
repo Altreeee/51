@@ -1,0 +1,70 @@
+C51 COMPILER V9.60.0.0   MAIN                                                              08/07/2022 21:50:29 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: D:\files\keil\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\m
+                    -ain.lst) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include "MatrixKey.h"
+   3          #include "LCD1602.h"
+   4          
+   5          unsigned char Keynum;
+   6          //int bits=10;
+   7          unsigned int word=0;
+   8          void main(){
+   9   1              LCD_Init();
+  10   1              LCD_ShowString(1,1,"password!");
+  11   1              
+  12   1              while(1){
+  13   2                      Keynum=MatrixKey();
+  14   2                      if(Keynum){
+  15   3                              //keyboard
+  16   3                              if(Keynum<=9){
+  17   4                                      word=word*10+Keynum;
+  18   4                              }
+  19   3                              LCD_Init();
+  20   3                              LCD_ShowNum(2,1,word,4);
+  21   3                              //concel one number
+  22   3                              if(Keynum==10){
+  23   4                                      word=word/10;
+  24   4                              }
+  25   3                              LCD_Init();
+  26   3                              LCD_ShowNum(2,1,word,4);
+  27   3                              //confirm
+  28   3                              if(Keynum==16){
+  29   4                                      if(word==1235){
+  30   5                                              LCD_Init();
+  31   5                                              LCD_ShowString(1,1,"correct ");
+  32   5                                              word=0;
+  33   5                                      }
+  34   4                                      else{
+  35   5                                              LCD_Init();
+  36   5                                              LCD_ShowString(1,1,"wrong");
+  37   5                                              word=0;
+  38   5                                      }
+  39   4                              }
+  40   3                              LCD_ShowNum(2,1,word,4);
+  41   3                              
+  42   3                      }
+  43   2              }
+  44   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    870    ----
+   CONSTANT SIZE    =     25    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      3      29
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+C51 COMPILER V9.60.0.0   MAIN                                                              08/07/2022 21:50:29 PAGE 2   
+
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,175 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    08/13/2022  23:08:31  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+D:\FILES\KEIL\C51\BIN\BL51.EXE .\Objects\main.obj TO .\Objects\project PRINT (.\Listings\project.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  D:\FILES\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\project (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0004H     UNIT         ?DT?MAIN
+            IDATA   000CH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     0008H                  *** GAP ***
+            CODE    000BH     0003H     ABSOLUTE     
+            CODE    000EH     0060H     UNIT         ?PR?TIMER0_ROUTINE?MAIN
+            CODE    006EH     0040H     UNIT         ?PR?KEY?MAIN
+            CODE    00AEH     0025H     UNIT         ?PR?MAIN?MAIN
+            CODE    00D3H     001AH     UNIT         ?PR?_DELAY?MAIN
+            CODE    00EDH     0017H     UNIT         ?PR?TIMER0_INIT?MAIN
+            CODE    0104H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\project (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN
+  +--> ?PR?TIMER0_INIT?MAIN
+  +--> ?PR?KEY?MAIN
+
+?PR?KEY?MAIN
+  +--> ?PR?_DELAY?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\project (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  08/13/2022  23:08:31  PAGE 2
+
+
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:000EH         PUBLIC        Timer0_Routine
+  D:00A0H         PUBLIC        P2
+  B:00A8H.7       PUBLIC        EA
+  C:00D7H         PUBLIC        _delay
+  B:00B0H.0       PUBLIC        P3_0
+  B:00B0H.1       PUBLIC        P3_1
+  B:00B0H.2       PUBLIC        P3_2
+  B:00B0H.3       PUBLIC        P3_3
+  D:000AH         PUBLIC        keynum
+  C:00AEH         PUBLIC        main
+  C:00EDH         PUBLIC        Timer0_Init
+  D:0089H         PUBLIC        TMOD
+  B:00A8H.1       PUBLIC        ET0
+  C:006EH         PUBLIC        key
+  B:0088H.5       PUBLIC        TF0
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  B:00B8H.1       PUBLIC        PT0
+  B:0088H.4       PUBLIC        TR0
+  D:000BH         PUBLIC        LEDmode
+  -------         PROC          TIMER0_INIT
+  C:00EDH         LINE#         5
+  C:00EDH         LINE#         7
+  C:00F0H         LINE#         8
+  C:00F3H         LINE#         9
+  C:00F5H         LINE#         10
+  C:00F7H         LINE#         11
+  C:00FAH         LINE#         12
+  C:00FDH         LINE#         14
+  C:00FFH         LINE#         15
+  C:0101H         LINE#         16
+  C:0103H         LINE#         17
+  -------         ENDPROC       TIMER0_INIT
+  C:00D3H         SYMBOL        L?0040
+  -------         PROC          L?0039
+  -------         ENDPROC       L?0039
+  C:00D3H         SYMBOL        L?0040
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        x
+  -------         DO            
+  D:0005H         SYMBOL        i
+  D:0004H         SYMBOL        j
+  -------         ENDDO         
+  C:00D7H         LINE#         4
+  C:00D7H         LINE#         5
+  C:00D7H         LINE#         7
+  C:00E1H         LINE#         8
+  C:00E2H         LINE#         9
+  C:00E4H         LINE#         10
+  C:00E6H         LINE#         12
+  C:00E6H         LINE#         13
+  C:00E8H         LINE#         14
+  C:00EAH         LINE#         16
+  C:00ECH         LINE#         17
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  08/13/2022  23:08:31  PAGE 3
+
+
+  -------         ENDPROC       _DELAY
+  -------         PROC          KEY
+  -------         DO            
+  D:0003H         SYMBOL        keynumber
+  -------         ENDDO         
+  C:006EH         LINE#         4
+  C:006EH         LINE#         5
+  C:0070H         LINE#         6
+  C:0081H         LINE#         7
+  C:008FH         LINE#         8
+  C:009DH         LINE#         9
+  C:00ABH         LINE#         10
+  C:00ADH         LINE#         12
+  -------         ENDPROC       KEY
+  -------         PROC          MAIN
+  C:00AEH         LINE#         7
+  C:00AEH         LINE#         8
+  C:00B1H         LINE#         9
+  C:00B4H         LINE#         10
+  C:00B4H         LINE#         11
+  C:00B9H         LINE#         12
+  C:00BDH         LINE#         13
+  C:00C1H         LINE#         14
+  C:00C3H         LINE#         15
+  C:00D1H         LINE#         16
+  C:00D1H         LINE#         17
+  C:00D1H         LINE#         18
+  -------         ENDPROC       MAIN
+  -------         PROC          TIMER0_ROUTINE
+  -------         DO            
+  D:0008H         SYMBOL        T0Count
+  -------         ENDDO         
+  C:000EH         LINE#         22
+  C:001DH         LINE#         24
+  C:0020H         LINE#         25
+  C:0023H         LINE#         26
+  C:002BH         LINE#         27
+  C:0034H         LINE#         28
+  C:003AH         LINE#         29
+  C:0043H         LINE#         30
+  C:0050H         LINE#         31
+  C:0050H         LINE#         32
+  C:0054H         LINE#         33
+  C:0061H         LINE#         34
+  C:0061H         LINE#         35
+  C:0061H         LINE#         36
+  -------         ENDPROC       TIMER0_ROUTINE
+  -------         ENDMOD        MAIN
+
+Program Size: data=13.0 xdata=0 code=264
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
